@@ -1,6 +1,6 @@
 using UC12_CLAB.Interfaces;
-namespace UC12_CLAB
-{
+namespace UC12_CLAB.Classes;
+
     public class PessoaJuridica: Pessoa, IPessoaJuridica
     {
         public string ?cnpj {get;set;}
@@ -16,4 +16,3 @@ namespace UC12_CLAB
             throw new NotImplementedException();
         }
     }
-}
