@@ -34,7 +34,7 @@ namespace UC12_CLAB.Classes
         {
             DateTime dataConv;
             if (DateTime.TryParse(dataNasc, out dataConv)){
-                Console.WriteLine($"{dataConv}");   
+                //Console.WriteLine($"{dataConv}");   
                 DateTime dataAtual =  DateTime.Today;
                 double anos = (dataAtual - dataConv).TotalDays/365;
                 if (anos >= 18){
@@ -42,7 +42,7 @@ namespace UC12_CLAB.Classes
                 }
                     return false;
             }
-                    return false;
+            return false;
         }
     }
 
