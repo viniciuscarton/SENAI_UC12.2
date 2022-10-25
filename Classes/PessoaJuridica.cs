@@ -10,6 +10,22 @@ namespace UC12_CLAB.Classes;
 
         public override float PagarImposto(float rendimento)
         {
+             if (rendimento <= 1500)
+            {
+                return (rendimento / 100) * 3;
+            }
+            else if (rendimento > 1500 && rendimento <= 3500)
+            {
+                return (rendimento / 100) * 5;
+            }
+            else if (rendimento > 3500 && rendimento <= 6000)
+            {
+                return (rendimento / 100) * 7;
+            }
+            else 
+            {
+                return (rendimento / 100) * 9;
+            }
             throw new NotImplementedException();
         }
 

@@ -34,7 +34,7 @@ switch (opcao)
             pf1.Nome = "Marcelo";
             pf1.cpf = "123.456.789.01";
             pf1.dataNascimento = "01/01/2010";
-            pf1.rendimento = 600;
+            pf1.rendimento = 9000;
             novoEnd.logradouro = "Rua Machado de Assis";
             novoEnd.numero = 1000;
             novoEnd.complemento = "Terceiro jazigo entrando no Cemitério";
@@ -45,8 +45,10 @@ switch (opcao)
                 Nome: {pf1.Nome}
                 CPF: {pf1.cpf}
                 Data de nascimento: {pf1.dataNascimento}
-                Maior de idade: {metodopf.ValidarDataNascimento(pf1.dataNascimento)}
+                Maior de idade: {(metodopf.ValidarDataNascimento(pf1.dataNascimento) ? "Sim":"Não")}
                 Endereço: {pf1.Endereco.logradouro}, {pf1.Endereco.numero}. {pf1.Endereco.complemento}
+                Rendimento: {pf1.rendimento.ToString("C")}
+                Imposto devido: {metodopf.PagarImposto(pf1.rendimento).ToString("C")}
                 ");
             Console.WriteLine($"Aperte 'Enter' para continuar");
             Console.ReadLine();
@@ -58,7 +60,7 @@ switch (opcao)
             pj1.Nome = "Fábrica de Chocolates";
             pj1.cnpj = "12.345.678/9012-34";
             pj1.razaoSoc = "Willy Wonka LTDA";
-            pj1.rendimento = 8000;
+            pj1.rendimento = 9000;
             novoEndPJ.logradouro = "Rua 30 de Fevereiro";
             novoEndPJ.numero = 1322;
             novoEndPJ.complemento = "Perto de Ratanabá";
@@ -69,8 +71,10 @@ switch (opcao)
                 Nome: {pj1.Nome}
                 Razão social: {pj1.razaoSoc}
                 CNPJ: {pj1.cnpj}
-                CNPJ válido: {metodopj.ValidarCNPJ(pj1.cnpj)}
+                CNPJ válido: {(metodopj.ValidarCNPJ(pj1.cnpj) ? "Sim":"Não")}
                 Endereço: {pj1.Endereco.logradouro}, {pj1.Endereco.numero}. {pj1.Endereco.complemento}
+                Rendimento: {pj1.rendimento.ToString("C")}
+                Imposto devido: {metodopj.PagarImposto(pj1.rendimento).ToString("C")}
                 ");
             Console.WriteLine($"Aperte 'Enter' para continuar");
             Console.ReadLine();
@@ -78,7 +82,7 @@ switch (opcao)
         case "0": 
             Console.Clear();
             Console.WriteLine($"Obrigado por utilizar nosso sistema :D");
-            barraCarregar("Finalizando", 100);
+            barraCarregar("Finalizando", 10);
             break;
         default:
             Console.Clear();
