@@ -6,7 +6,7 @@ namespace UC12_CLAB.Classes
     {
         public string ?Nome {get;set;}
         public Endereco ?Endereco {get;set;}
-        public int rendimento { get; set;}
+        public float rendimento { get; set;}
 
         public abstract float PagarImposto(float rendimento);
        
