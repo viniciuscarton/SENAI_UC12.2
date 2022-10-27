@@ -1,11 +1,10 @@
 using UC12_CLAB.Interfaces;
 namespace UC12_CLAB.Classes
 {
-    public class PessoaFisica: Pessoa, IPessoaFisica
+    public class PessoaFisica : Pessoa, IPessoaFisica
     {
-        public string ?cpf {get;set;}
-        public string ?dataNascimento {get;set;}
-
+        public string? cpf { get; set; }
+        public string? dataNascimento { get; set; }
         public override float PagarImposto(float rendimento)
         {
             if (rendimento <= 1500)
@@ -20,19 +19,16 @@ namespace UC12_CLAB.Classes
             {
                 return (rendimento / 100) * 3.5f;
             }
-            else 
+            else
             {
                 return (rendimento / 100) * 5;
             }
-        
             throw new NotImplementedException();
         }
-
         internal object ValidarDataNascimento(DateTime? dataNascimento)
         {
             throw new NotImplementedException();
         }
-
         /*
             public bool ValidarDataNascimento(DateTime dataNasc)
             {
@@ -46,21 +42,21 @@ namespace UC12_CLAB.Classes
                     return false;
             }
             */
-
         public bool ValidarDataNascimento(string dataNasc)
         {
             DateTime dataConv;
-            if (DateTime.TryParse(dataNasc, out dataConv)){
+            if (DateTime.TryParse(dataNasc, out dataConv))
+            {
                 //Console.WriteLine($"{dataConv}");   
-                DateTime dataAtual =  DateTime.Today;
-                double anos = (dataAtual - dataConv).TotalDays/365;
-                if (anos >= 18){
+                DateTime dataAtual = DateTime.Today;
+                double anos = (dataAtual - dataConv).TotalDays / 365;
+                if (anos >= 18)
+                {
                     return true;
                 }
-                    return false;
+                return false;
             }
             return false;
         }
     }
-
-}   
+}

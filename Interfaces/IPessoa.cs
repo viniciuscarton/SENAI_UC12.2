@@ -2,6 +2,6 @@ namespace UC12_CLAB.Interfaces
 {
     public interface IPessoa
     {
-         float PagarImposto(float rendimento);
+        float PagarImposto(float rendimento);
     }
 }
