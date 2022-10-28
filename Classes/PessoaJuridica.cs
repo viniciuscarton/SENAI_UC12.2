@@ -52,24 +52,35 @@ public class PessoaJuridica : Pessoa, IPessoaJuridica
     public void Inserir(PessoaJuridica pj)
     {
         VerificarPastaArquivo(caminho);
-        string[] pjString = { $"{pj.Nome}, {pj.razaoSoc}, {pj.cnpj}" };
+        string[] pjString = { $"{pj.Nome}, {pj.razaoSoc}, {pj.cnpj}, {pj.Endereco.logradouro}, {pj.Endereco.numero}, {pj.Endereco.complemento}, {pj.Endereco.endComercial}, {pj.rendimento}"};
         File.AppendAllLines(caminho, pjString);
     }
     public List<PessoaJuridica> Ler()
     {
+        VerificarPastaArquivo(caminho);
         List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
         string[] linhas = File.ReadAllLines(caminho);
         foreach (string cadaLinha in linhas)
         {
             string[] atributos = cadaLinha.Split(",");
             PessoaJuridica cadaPj = new PessoaJuridica();
+            Endereco cadaEnd = new Endereco();
+
             cadaPj.Nome = atributos[0];
             cadaPj.razaoSoc = atributos[1];
             cadaPj.cnpj = atributos[2];
+            cadaEnd.logradouro = atributos[3];
+            cadaEnd.numero = int.Parse(atributos[4]);
+            cadaEnd.complemento = atributos[5];
+            cadaEnd.endComercial = bool.Parse(atributos[6]);
+            cadaPj.rendimento = float.Parse(atributos[7]);
+            
+            cadaPj.Endereco = cadaEnd;
             listaPj.Add(cadaPj);
         }
         return listaPj;
     }
 }
+
 
 

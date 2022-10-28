@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB\\UC12_CLAB.csproj",
+      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB_v2\\UC12_CLAB.csproj",
       "projectName": "UC12_CLAB",
-      "projectPath": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB\\UC12_CLAB.csproj",
+      "projectPath": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB_v2\\UC12_CLAB.csproj",
       "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB\\obj\\",
+      "outputPath": "C:\\Users\\Vinicius\\Desktop\\vscode\\UC12_CLAB_v2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config"

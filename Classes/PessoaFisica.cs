@@ -5,6 +5,7 @@ namespace UC12_CLAB.Classes
     {
         public string? cpf { get; set; }
         public string? dataNascimento { get; set; }
+        public string caminho { get; private set; } = "Database/PessoaFisica.csv";
         public override float PagarImposto(float rendimento)
         {
             if (rendimento <= 1500)
@@ -57,6 +58,37 @@ namespace UC12_CLAB.Classes
                 return false;
             }
             return false;
+        }
+
+        public void Inserir(PessoaFisica pf)
+        {
+            VerificarPastaArquivo(caminho);
+            string[] pjString = { $"{pf.Nome}, {pf.dataNascimento}, {pf.cpf}, {pf.Endereco.logradouro}, {pf.Endereco.numero}, {pf.Endereco.complemento}, {pf.Endereco.endComercial}, {pf.rendimento}" };
+            File.AppendAllLines(caminho, pjString);
+        }
+        public List<PessoaFisica> Ler()
+        {
+            List<PessoaFisica> listaPf = new List<PessoaFisica>();
+            string[] linhas = File.ReadAllLines(caminho);
+            foreach (string cadaLinha in linhas)
+            {
+                string[] atributos = cadaLinha.Split(",");
+                PessoaFisica cadaPf = new PessoaFisica();
+                Endereco cadaEnd = new Endereco();
+
+                cadaPf.Nome = atributos[0];
+                cadaPf.dataNascimento = atributos[1];
+                cadaPf.cpf = atributos[2];
+                cadaEnd.logradouro = atributos[3];
+                cadaEnd.numero = int.Parse(atributos[4]);
+                cadaEnd.complemento = atributos[5];
+                cadaEnd.endComercial = bool.Parse(atributos[6]);
+                cadaPf.rendimento = float.Parse(atributos[7]);
+
+                cadaPf.Endereco = cadaEnd;
+                listaPf.Add(cadaPf);
+            }
+            return listaPf;
         }
     }
 }
